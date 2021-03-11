@@ -1,5 +1,13 @@
 /* Estilos para el menu lateral
  */
+.lateral-menu__extra-layer
+  width: 25rem
+
+.lateral-menu__extra-layer--smaller
+  width: 8.5rem
+  background: $backgroundColor !important
+
+
 
 .lateral-menu
   width: 25rem
@@ -9,6 +17,20 @@
   background: rgb(65,152,180)
   background: linear-gradient(0deg, rgba(65,152,180,1) 0%, rgba(40,74,191,1) 42%, rgba(18,42,130,1) 76%, rgba(1,19,85,1) 99%)
 
+
+.lateral-menu--fixed
+  position: fixed
+  top: 0px
+  left: 0px
+  width: 25rem
+
+.menu-options
+  position: relative
+
+.menu-options--hide
+  display: none
+
+
 .menu-sidebar
   width: 34%
   background: $lateralMenuColor
@@ -17,6 +39,7 @@
   flex-direction: column
   align-items: center
   justify-content: space-between
+  z-index: 1000
 
 .menu-sidebar__options
   display: flex
@@ -27,6 +50,8 @@
   color: #fff
   font-size: 2.3rem
   padding: 1rem 0
+  cursor: pointer
+  z-index: 1000
 
 .circle-data
   border-radius: 100%
@@ -104,6 +129,23 @@
   flex-direction: column
   align-items: center
   margin-bottom: 1rem
+
+.btn-close-lateralmenu
+  position: absolute
+  bottom: 1rem
+  right: -2rem
+  padding: 1.5rem
+  border-radius: 200%
+  cursor: pointer
+  background: #2C37A3
+  color: #ffffff
+  border: none
+  font-size: 1.6rem
+  transition: all .2s ease
+  &:hover
+    font-size: 1.4rem
+
+
 
 
 
