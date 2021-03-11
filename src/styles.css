@@ -1,1 +1,176 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global style
+ */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  height: 100%; }
+
+* {
+  box-sizing: inherit;
+  margin: 0rem;
+  padding: 0rem; }
+  *::before {
+    box-sizing: inherit; }
+  *::after {
+    box-sizing: inherit; }
+
+body {
+  font-size: 1.5rem;
+  font-family: "Nunito", sans-serif;
+  height: 100%;
+  background: #eff3fd; }
+
+.main-container {
+  display: flex;
+  height: 100%; }
+
+.muted {
+  color: #BDBFC5; }
+
+a {
+  text-decoration: none; }
+
+.clearfix {
+  clear: both;
+  float: none; }
+
+/* Estilos para el menu lateral
+ */
+.lateral-menu {
+  width: 25rem;
+  background: white;
+  display: flex;
+  height: 100%;
+  background: #4198b4;
+  background: linear-gradient(0deg, #4198b4 0%, #284abf 42%, #122a82 76%, #011355 99%); }
+
+.menu-sidebar {
+  width: 34%;
+  background: #283aa2;
+  border-radius: 0rem 1.3rem 1.3rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+
+.menu-sidebar__options {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.menu-siderbar__link {
+  color: #fff;
+  font-size: 2.3rem;
+  padding: 1rem 0; }
+
+.circle-data {
+  border-radius: 100%;
+  background: white;
+  font-size: 1.9rem;
+  color: #283AA2;
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  font-weight: 700;
+  margin-bottom: 1rem; }
+
+.item-link {
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  color: #BDBFC5;
+  text-decoration: none;
+  font-size: 1.6rem;
+  border-left: 0.4rem solid rgba(255, 255, 255, 0); }
+
+.item-link__text {
+  text-align: left;
+  width: 70%;
+  line-height: 1.9rem; }
+
+.item-link__icon {
+  width: 30%;
+  text-align: left; }
+
+.item-link--active {
+  background: #20398F;
+  color: #ffffff;
+  border-left: 0.4rem solid #ffffff;
+  font-weight: 700; }
+
+.item-link__data {
+  display: flex;
+  flex-direction: column;
+  line-height: 2.2rem;
+  width: 70%; }
+
+.item-link__head {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem; }
+
+.item-link__title {
+  font-size: 2rem;
+  font-weight: 700; }
+
+.item-link__subtitle {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 1.4rem; }
+
+.item-link__head > .item-link__icon {
+  font-size: 2rem; }
+
+.notification {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  background: #CD3E3E;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 200%;
+  float: right;
+  margin-left: 2rem; }
+
+.menu-siderbar__link--notification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem; }
+
+/* Estilos para el contenido principal
+ */
+.main-content {
+  width: 100%; }
+
+.page {
+  display: flex;
+  flex-direction: column; }
+
+.page__header {
+  padding: 1rem 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 0.2rem solid rgba(204, 204, 204, 0.7);
+  display: block; }
+
+.page__content {
+  padding: 1rem 2.5rem; }
+
+.page__header-link {
+  color: #4954B1;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center; }
+
+.page__header-link > i {
+  margin-right: 2rem;
+  font-size: 3rem; }
+
+.page__header-title {
+  font-size: 3.3rem;
+  color: #020F54;
+  font-weight: 700; }
+
+/*# sourceMappingURL=styles.css.map */
