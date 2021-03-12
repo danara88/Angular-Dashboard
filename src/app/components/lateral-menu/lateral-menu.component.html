@@ -1,7 +1,7 @@
-<div class="lateral-menu__extra-layer">
+<div class="lateral-menu__extra-layer" id="menu-layer">
 
 
-<section class="lateral-menu lateral-menu--fixed">
+<section class="lateral-menu lateral-menu--fixed" id="lateral-menu">
   <div class="menu-sidebar">
 
     <!--   Opciones parte superior   -->
@@ -29,14 +29,23 @@
         <span class="notification">2</span>
         <i class="fas fa-bell"></i>
       </a>
-      <a href="#" class="menu-siderbar__link circle-data">
+
+      <button type="button"
+              title="Abrir menu"
+              class="menu-siderbar__link circle-data circle-data--togglemenu circle-data--hide"
+              (click)="menuToggle()" id="btn-toggle-open">
+        <span class="circle-data__text">  <i class="fas fa-arrow-right"></i>  </span>
+      </button>
+
+      <a href="#" class="menu-siderbar__link circle-data" title="Cerrar menu">
         <span class="circle-data__text">CR</span>
       </a>
     </div>
 
 
+
   </div>
-  <div class="menu-options">
+  <div class="menu-options" id="menu-options">
 
     <div class="menu-options__header">
       <div class="item-link item-link__head">
@@ -76,7 +85,7 @@
       </a>
     </div>
 
-    <button class="btn-close-lateralmenu">
+    <button class="btn-close-lateralmenu" id="btn-toggle-menu" (click)="menuToggle()">
       <i class="fas fa-arrow-left"></i>
     </button>
 

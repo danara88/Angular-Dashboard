@@ -40,12 +40,17 @@ a {
 
 /* Estilos para el menu lateral
  */
+@keyframes make-menu-smaller {
+  from {
+    width: 25rem; }
+  to {
+    width: 5rem; } }
 .lateral-menu__extra-layer {
   width: 25rem; }
 
 .lateral-menu__extra-layer--smaller {
-  width: 8.5rem;
-  background: #eff3fd !important; }
+  background: #eff3fd !important;
+  width: 6.8rem !important; }
 
 .lateral-menu {
   width: 25rem;
@@ -58,8 +63,13 @@ a {
 .lateral-menu--fixed {
   position: fixed;
   top: 0px;
-  left: 0px;
-  width: 25rem; }
+  left: 0px; }
+
+.animation-menu-smaller {
+  animation-duration: 0.2s;
+  animation-name: make-menu-smaller;
+  width: 5rem;
+  margin-right: 2rem; }
 
 .menu-options {
   position: relative; }
@@ -75,7 +85,11 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000; }
+  z-index: 10000;
+  position: relative; }
+
+.lateral-menu__extra-layer--smaller .menu-sidebar {
+  width: 100%; }
 
 .menu-sidebar__options {
   display: flex;
@@ -99,6 +113,15 @@ a {
   display: block;
   font-weight: 700;
   margin-bottom: 1rem; }
+
+.circle-data--togglemenu {
+  border: none;
+  font-size: 1.6rem;
+  width: 4rem;
+  height: 4rem; }
+
+.circle-data--hide {
+  display: none; }
 
 .item-link {
   padding: 0.7rem 1.5rem;
@@ -177,15 +200,19 @@ a {
   color: #ffffff;
   border: none;
   font-size: 1.6rem;
-  transition: all 0.2s ease; }
+  transition: all 0.2s ease;
+  outline: none;
+  z-index: 1000; }
   .btn-close-lateralmenu:hover {
     font-size: 1.4rem; }
+
+.btn-close-lateralmenu--sidebar {
+  right: -5rem; }
 
 /* Estilos para el contenido principal
  */
 .main-content {
-  width: 100%;
-  z-index: 1000; }
+  width: 100%; }
 
 .page {
   display: flex;

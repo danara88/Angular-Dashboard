@@ -8,41 +8,41 @@
 
     <div class="page__content-row">
 
-      <div class="card-custom">
+      <div class="card-custom" *ngIf="contract">
 
         <div class="card-custom__col">
           <div class="card-custom__group">
             <span class="card-custom__subtitle muted">Código contrato</span>
-            <span class="card-custom__data bold-custom">CO-CO001-20</span>
+            <span class="card-custom__data bold-custom">{{ contract.code }}</span>
           </div>
           <div class="card-custom__group">
             <span class="card-custom__subtitle muted">Especialidad</span>
-            <span class="card-custom__data">Concrete</span>
+            <span class="card-custom__data">{{ contract.category }}</span>
           </div>
           <div class="card-custom__group">
             <span class="card-custom__subtitle muted">Fecha de inicio</span>
-            <span class="card-custom__data">13/12/2019</span>
+            <span class="card-custom__data">{{ contract.start_date | date:'dd/MM/yyyy' }}</span>
           </div>
         </div>
 
         <div class="card-custom__col">
           <div class="card-custom__group">
             <span class="card-custom__subtitle muted">Nombre contrato</span>
-            <span class="card-custom__data">Habitante OC/AL Maíz Mier</span>
+            <span class="card-custom__data">{{ contract.name }}</span>
           </div>
           <div class="card-custom__group">
             <span class="card-custom__subtitle muted">Contratista</span>
-            <a href="#" class="card-custom__data card-custom__data--link">Constructora Maiz Mier S.A. de C.V.</a>
+            <a href="#" class="card-custom__data card-custom__data--link">{{ contract.contractor }}</a>
           </div>
           <div class="card-custom__group card-custom__group--row">
             <div class="data">
               <span class="card-custom__subtitle muted">Fecha de terminación</span>
-              <span class="card-custom__data">20/12/2019</span>
+              <span class="card-custom__data">{{ contract.end_date | date:'dd/MM/yyyy' }}</span>
             </div>
 
             <div class="data">
               <span class="card-custom__subtitle muted">Duración</span>
-              <span class="card-custom__data">7 days</span>
+              <span class="card-custom__data">{{ (contract.end_date | date: 'dd') -  (contract.start_date | date: 'dd')}} days</span>
             </div>
 
           </div>
@@ -51,9 +51,9 @@
         <div class="card-custom__col">
           <div class="document">
             <span class="card-custom__subtitle muted">Evidencia</span>
-            <a href="#" class="document__info">
+            <a href="{{ apiURL + this.contract.file }}" target="_blank" class="document__info">
               <i class="document__icon card-custom__data--link fas fa-file-pdf"></i>
-              <span class="document__text card-custom__data--link">COCO001-20</span>
+              <span class="document__text card-custom__data--link">{{ contract.code }}</span>
             </a>
           </div>
         </div>
@@ -66,57 +66,34 @@
         <div class="card-custom__col">
           <div class="card-custom__group card-custom__group--row">
             <span class="card-custom__subtitle bold-custom">Total(MXN)</span>
-            <span class="card-custom__data bold-custom">{{ '200000000' | currency }}</span>
+            <span class="card-custom__data bold-custom">{{ this.contract.total_amount | currency }}</span>
           </div>
           <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">IVA(16%)</span>
-            <span class="card-custom__data">{{ '100000000' | currency }}</span>
+            <span class="card-custom__subtitle">IVA({{ this.contract.vat | percent }})</span>
+            <span class="card-custom__data">{{ this.contract.total_amount * this.contract.vat | currency }}</span>
           </div>
           <div class="card-custom__group card-custom__group--row">
             <span class="card-custom__subtitle">Contratado sin IVA</span>
-            <span class="card-custom__data">{{ '100000000' | currency }}</span>
+            <span class="card-custom__data">{{ priceWithoutVat | currency }}</span>
           </div>
           <div class="card-custom__group card-custom__group--row">
             <span class="card-custom__subtitle">Contratado con IVA</span>
-            <span class="card-custom__data">{{ '100000000' | currency }}</span>
+            <span class="card-custom__data">{{ priceWithVat | currency }}</span>
           </div>
           <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">Anticipo (30%)</span>
-            <span class="card-custom__data">{{ '100000000' | currency }}</span>
+            <span class="card-custom__subtitle">Anticipo ({{ this.contract.down_payment | percent }})</span>
+            <span class="card-custom__data">{{ this.contract.total_amount * this.contract.down_payment | currency }}</span>
           </div>
           <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">Fondo garantía (5%)</span>
-            <span class="card-custom__data">{{ '100000000' | currency }}</span>
+            <span class="card-custom__subtitle">Fondo garantía ({{ this.contract.guarantee_fund | percent }})</span>
+            <span class="card-custom__data">{{ this.contract.total_amount * this.contract.guarantee_fund | currency }}</span>
           </div>
         </div>
       </div>
 
     </div>
 
-    <div class="page__content-row">
-      <div class="card-custom card-custom--100 card-custom--column">
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
-        <p>Hola mundo</p>
 
-      </div>
-    </div>
 
   </section>
 
