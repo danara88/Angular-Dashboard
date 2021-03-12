@@ -62,7 +62,7 @@
 
       </div>
 
-      <div class="card-custom">
+      <div class="card-custom" *ngIf="contract">
         <div class="card-custom__col">
           <div class="card-custom__group card-custom__group--row">
             <span class="card-custom__subtitle bold-custom">Total(MXN)</span>
@@ -91,6 +91,21 @@
         </div>
       </div>
 
+    </div>
+
+
+    <div class="page__content-row">
+      <div class="card-custom card-custom--100" *ngIf="contract">
+        <div class="card-custom__row card-custom__row--center">
+            <div class="progress-bar card-custom">
+              <span class="card-custom__data">PROGRESO A FECHA</span>
+              <span class="progress-bar__percent">50%</span>
+              <div class="w3-light-grey progress-bar__bar">
+                <div class="w3-green" style="height:24px;width:50%"></div>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
 
 
