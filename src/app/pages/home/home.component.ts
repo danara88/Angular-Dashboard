@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
   constructor( private dataService: DataService ) {
     this.priceWithoutVat = 0;
     this.priceWithVat = 0;
-    this.apiURL = environment.apiURL;
+    this.apiURL = environment.app.apiURL;
   }
 
   ngOnInit(): void {

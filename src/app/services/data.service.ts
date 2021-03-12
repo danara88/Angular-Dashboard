@@ -13,7 +13,7 @@ import { ContractItem } from '../models/contract-item.interfaces';
 export class DataService {
   public apiBase: string;
   constructor( private http: HttpClient ) {
-    this.apiBase = environment.apiURL;
+    this.apiBase = environment.app.apiURL;
   }
 
   getContractData( projectId: string ): Observable<Contract> {
