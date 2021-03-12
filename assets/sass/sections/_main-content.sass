@@ -13,7 +13,6 @@
   border-bottom: .2rem solid rgba(#ccc, 0.7)
   display: block
 
-
 .page__content
   padding: 1rem 2.5rem
 
@@ -31,5 +30,39 @@
   font-size: 3.3rem
   color: $purpleColorTitle
   font-weight: 700
+
+.page__content-row
+  display: flex
+  justify-content: space-between
+  margin-bottom: 2rem
+
+@media (max-width: 1260px)
+  .page__content-row
+    display: flex
+    flex-direction: column
+  .page__content-row .card-custom
+    margin: 1rem 0
+
+@media (min-width: 1600px)
+  .page__content-row
+    width: 80%
+    margin: auto
+    margin-bottom: 2rem
+
+@media (min-width: 1700px)
+  .page__content-row
+    width: 75%
+    margin: auto
+    margin-bottom: 2rem
+
+@media (min-width: 1800px)
+  .page__content-row
+    width: 65%
+    margin: auto
+    margin-bottom: 2rem
+
+.card-custom__data--link
+  color: #46A4B1 !important
+
 
 

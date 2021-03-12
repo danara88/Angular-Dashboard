@@ -1,6 +1,19 @@
 /* Estilos para el menu lateral
  */
 
+@keyframes make-menu-smaller
+  from
+    width: 25rem
+  to
+    width: 5rem
+
+.lateral-menu__extra-layer
+  width: 25rem
+
+.lateral-menu__extra-layer--smaller
+  background: $backgroundColor !important
+  width: 6.8rem !important
+
 .lateral-menu
   width: 25rem
   background: white
@@ -8,6 +21,23 @@
   height: 100%
   background: rgb(65,152,180)
   background: linear-gradient(0deg, rgba(65,152,180,1) 0%, rgba(40,74,191,1) 42%, rgba(18,42,130,1) 76%, rgba(1,19,85,1) 99%)
+
+.lateral-menu--fixed
+  position: fixed
+  top: 0px
+  left: 0px
+
+.animation-menu-smaller
+  animation-duration: .2s
+  animation-name: make-menu-smaller
+  width: 5rem
+  margin-right: 2rem
+
+.menu-options
+  position: relative
+
+.menu-options--hide
+  display: none
 
 .menu-sidebar
   width: 34%
@@ -17,6 +47,11 @@
   flex-direction: column
   align-items: center
   justify-content: space-between
+  z-index: 10000
+  position: relative
+
+.lateral-menu__extra-layer--smaller .menu-sidebar
+  width: 100%
 
 .menu-sidebar__options
   display: flex
@@ -27,6 +62,8 @@
   color: #fff
   font-size: 2.3rem
   padding: 1rem 0
+  cursor: pointer
+  z-index: 1000
 
 .circle-data
   border-radius: 100%
@@ -38,6 +75,15 @@
   display: block
   font-weight: 700
   margin-bottom: 1rem
+
+.circle-data--togglemenu
+  border: none
+  font-size: 1.6rem
+  width: 4rem
+  height: 4rem
+
+.circle-data--hide
+  display: none
 
 .item-link
   padding: 0.7rem 1.5rem
@@ -104,6 +150,28 @@
   flex-direction: column
   align-items: center
   margin-bottom: 1rem
+
+.btn-close-lateralmenu
+  position: absolute
+  bottom: 1rem
+  right: -2rem
+  padding: 1.5rem
+  border-radius: 200%
+  cursor: pointer
+  background: #2C37A3
+  color: #ffffff
+  border: none
+  font-size: 1.6rem
+  transition: all .2s ease
+  outline: none
+  z-index: 1000
+  &:hover
+    font-size: 1.4rem
+
+.btn-close-lateralmenu--sidebar
+  right: -5rem
+
+
 
 
 
