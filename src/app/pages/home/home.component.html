@@ -6,97 +6,18 @@
 
   <section class="page__content">
 
-    <div class="page__content-row">
 
-      <div class="card-custom" *ngIf="contract">
-
-        <div class="card-custom__col">
-          <div class="card-custom__group">
-            <span class="card-custom__subtitle muted">Código contrato</span>
-            <span class="card-custom__data bold-custom">{{ contract.code }}</span>
-          </div>
-          <div class="card-custom__group">
-            <span class="card-custom__subtitle muted">Especialidad</span>
-            <span class="card-custom__data">{{ contract.category }}</span>
-          </div>
-          <div class="card-custom__group">
-            <span class="card-custom__subtitle muted">Fecha de inicio</span>
-            <span class="card-custom__data">{{ contract.start_date | date:'dd/MM/yyyy' }}</span>
-          </div>
-        </div>
-
-        <div class="card-custom__col">
-          <div class="card-custom__group">
-            <span class="card-custom__subtitle muted">Nombre contrato</span>
-            <span class="card-custom__data">{{ contract.name }}</span>
-          </div>
-          <div class="card-custom__group">
-            <span class="card-custom__subtitle muted">Contratista</span>
-            <a href="#" class="card-custom__data card-custom__data--link">{{ contract.contractor }}</a>
-          </div>
-          <div class="card-custom__group card-custom__group--row">
-            <div class="data">
-              <span class="card-custom__subtitle muted">Fecha de terminación</span>
-              <span class="card-custom__data">{{ contract.end_date | date:'dd/MM/yyyy' }}</span>
-            </div>
-
-            <div class="data">
-              <span class="card-custom__subtitle muted">Duración</span>
-              <span class="card-custom__data">{{ (contract.end_date | date: 'dd') -  (contract.start_date | date: 'dd')}} days</span>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="card-custom__col">
-          <div class="document">
-            <span class="card-custom__subtitle muted">Evidencia</span>
-            <a href="{{ apiURL + this.contract.file }}" target="_blank" class="document__info">
-              <i class="document__icon card-custom__data--link fas fa-file-pdf"></i>
-              <span class="document__text card-custom__data--link">{{ contract.code }}</span>
-            </a>
-          </div>
-        </div>
+    <!-- Componente de cards -->
+    <app-cards></app-cards>
 
 
-
-      </div>
-
-      <div class="card-custom" *ngIf="contract">
-        <div class="card-custom__col">
-          <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle bold-custom">Total(MXN)</span>
-            <span class="card-custom__data bold-custom">{{ this.contract.total_amount | currency }}</span>
-          </div>
-          <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">IVA({{ this.contract.vat | percent }})</span>
-            <span class="card-custom__data">{{ this.contract.total_amount * this.contract.vat | currency }}</span>
-          </div>
-          <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">Contratado sin IVA</span>
-            <span class="card-custom__data">{{ priceWithoutVat | currency }}</span>
-          </div>
-          <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">Contratado con IVA</span>
-            <span class="card-custom__data">{{ priceWithVat | currency }}</span>
-          </div>
-          <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">Anticipo ({{ this.contract.down_payment | percent }})</span>
-            <span class="card-custom__data">{{ this.contract.total_amount * this.contract.down_payment | currency }}</span>
-          </div>
-          <div class="card-custom__group card-custom__group--row">
-            <span class="card-custom__subtitle">Fondo garantía ({{ this.contract.guarantee_fund | percent }})</span>
-            <span class="card-custom__data">{{ this.contract.total_amount * this.contract.guarantee_fund | currency }}</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
 
 
     <div class="page__content-row">
-      <div class="card-custom card-custom--100" *ngIf="contract">
+      <div class="card-custom card-custom--not-padding card-custom--100 card-custom--column">
+
         <div class="card-custom__row card-custom__row--center">
+          <!--    Progress bar      -->
             <div class="progress-bar card-custom">
               <span class="card-custom__data">PROGRESO A FECHA</span>
               <span class="progress-bar__percent">50%</span>
@@ -104,7 +25,160 @@
                 <div class="w3-green" style="height:24px;width:50%"></div>
               </div>
             </div>
+          <!--    Progress bar      -->
         </div>
+
+        <div class="card-custom__row">
+          <div class="table-responsive">
+            <table class="table-custom1">
+              <thead class="table-custom1__head">
+              <tr>
+                <th>Total contratado</th>
+                <th>Estimado a la fecha</th>
+                <th>Pendiente de estimar</th>
+                <th>Anticipo por amortizar</th>
+                <th>Fondo garantía retenido</th>
+              </tr>
+              </thead>
+              <tbody class="table-custom1__body">
+                <tr>
+                  <td>{{ 100000000 | currency }}</td>
+                  <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
+                  <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
+                  <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
+                  <td>{{ 100000000 | currency }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card-custom__row">
+
+          <div class="tables-title">
+            Deducciones
+          </div>
+          <div class="clearfix"></div>
+          <div class="tables-container">
+          <!--    Tabla izquierda      -->
+          <table class="table table-custom2 table-custom2-45 table-custom2--left">
+              <thead class="table2__head">
+                <tr>
+                  <th scope="col" class="table__number"><span>#</span></th>
+                  <th scope="col">Fecha aprobación</th>
+                  <th scope="col">Concepto</th>
+                  <th scope="col">Aprobado por</th>
+
+                </tr>
+              </thead>
+              <tbody class="table-custom2__body">
+                <tr>
+                  <td class="table__number"><span>1</span></td>
+                  <td class="text-center"><span>12/12/2020</span></td>
+                  <td><span>Es-MA-323243</span></td>
+                  <td><span>Carlos Mensfoza</span></td>
+                </tr>
+                <tr>
+                  <td class="table__number"><span>1</span></td>
+                  <td class="text-center"><span>12/12/2020</span></td>
+                  <td><span>Es-MA-323243</span></td>
+                  <td><span>Carlos Mensfoza</span></td>
+                </tr>
+                <tr>
+                  <td class="table__number"><span>1</span></td>
+                  <td class="text-center"><span>12/12/2020</span></td>
+                  <td><span>Es-MA-323243</span></td>
+                  <td><span>Carlos Mensfoza</span></td>
+                </tr>
+
+                <div class="table2__space"></div>
+
+                <tr class="table-custom2__total table-custom2__total--border">
+                  <td class="td-invisible"><span>----</span></td>
+                  <td class="td-invisible"><span>----</span></td>
+                  <td class="td-invisible"><span>----</span></td>
+                  <td class="bold-custom table-custom2__total-text">Total</td>
+                </tr>
+
+
+              </tbody>
+
+
+            </table>
+          <!--    Tabla izquierda      -->
+
+
+          <!--    Tabla derecha      -->
+            <div class="table-responsive-custom table-custom2-55">
+              <table class="table table-custom2 table-custom2--right">
+                <thead class="table2__head table2__head--border-left">
+
+                  <tr>
+                    <th scope="col">Estimación</th>
+                    <th scope="col">Anticipo</th>
+                    <th scope="col">Fondo garantía</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">IVA</th>
+                    <th scope="col">Total</th>
+                  </tr>
+
+                </thead>
+                <tbody class="table-custom2__body table-custom2__body-right">
+
+                <tr>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+
+                </tr>
+
+                <tr>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+
+                </tr>
+
+                <tr>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+                  <td><span>{{ 100000000 | currency }}</span></td>
+
+                </tr>
+
+                <div class="table2__space"></div>
+
+                <tr class="table-custom2__total table-custom2__totals">
+                  <td>{{ 100000000 | currency }}</td>
+                  <td>{{ 100000000 | currency }}</td>
+                  <td>{{ 100000000 | currency }}</td>
+                  <td>{{ 100000000 | currency }}</td>
+                  <td>{{ 100000000 | currency }}</td>
+                  <td>{{ 100000000 | currency }}</td>
+
+                </tr>
+
+                </tbody>
+
+
+              </table>
+            </div>
+          <!--    Tabla derecha      -->
+          </div>
+
+
+        </div>
+
+
       </div>
     </div>
 
