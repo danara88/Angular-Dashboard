@@ -30,6 +30,7 @@ export class TablesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContractItems();
+    console.log(this.contract.down_payment * this.contract.total_amount);
   }
 
   get percentPorgressbar(): number {

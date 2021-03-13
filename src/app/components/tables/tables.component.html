@@ -27,7 +27,7 @@
         <td>{{ contract.total_amount | currency }}</td>
         <td class="table-custom1__td--margin">{{ printTotalsTable('estimate') | currency }}</td>
         <td class="table-custom1__td--margin">{{ contract.total_amount - printTotalsTable('estimate') | currency }}</td>
-        <td class="table-custom1__td--margin">{{ contract.down_payment - printTotalsTable('down_payment') | currency }}</td>
+        <td class="table-custom1__td--margin">{{ contract.down_payment * contract.total_amount - printTotalsTable('down_payment') | currency }}</td>
         <td>{{ printTotalsTable('guarantee_fund') | currency }}</td>
       </tr>
       </tbody>
