@@ -1,0 +1,81 @@
+<div class="card-custom__row">
+
+  <div class="tables-title">
+    Deducciones
+  </div>
+  <div class="clearfix"></div>
+  <div class="tables-container" *ngIf="contractItems">
+    <!--    Tabla izquierda      -->
+    <table class="table table-custom2 table-custom2-45 table-custom2--left">
+      <thead class="table2__head">
+      <tr>
+        <th scope="col" class="table__number"><span>#</span></th>
+        <th scope="col">Fecha aprobación</th>
+        <th scope="col">Concepto</th>
+        <th scope="col">Aprobado por</th>
+
+      </tr>
+      </thead>
+      <tbody class="table-custom2__body">
+      <tr *ngFor="let item of contractItems; let idx = index">
+        <td class="table__number"><span>{{ idx + 1 }}</span></td>
+        <td class="text-center"><span>{{ item.reviewDate | date:'dd/MM/yyyy' }}</span></td>
+        <td><span>{{ item.name }}</span></td>
+        <td><span>{{ item.reviewed_by }}</span></td>
+      </tr>
+
+      </tbody>
+
+
+    </table>
+    <!--    Tabla izquierda      -->
+
+
+    <!--    Tabla derecha      -->
+    <div class="table-responsive-custom table-custom2-55">
+      <table class="table table-custom2 table-custom2--right">
+        <thead class="table2__head table2__head--border-left">
+
+        <tr>
+          <th scope="col">Estimación</th>
+          <th scope="col">Anticipo</th>
+          <th scope="col">Fondo garantía</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">IVA</th>
+          <th scope="col">Total</th>
+        </tr>
+
+        </thead>
+        <tbody class="table-custom2__body table-custom2__body-right">
+
+        <tr *ngFor="let item of contractItems">
+          <td><span>{{ item.estimate | currency }}</span></td>
+          <td><span>{{ item.down_payment | currency }}</span></td>
+          <td><span>{{ item.guarantee_fund | currency }}</span></td>
+          <td><span>{{ 100000000 | currency }}</span></td>
+          <td><span>{{ 100000000 | currency }}</span></td>
+          <td><span>{{ 100000000 | currency }}</span></td>
+        </tr>
+
+        <div class="table2__space"></div>
+
+        <tr class="table-custom2__total table-custom2__totals">
+          <td>{{ 100000000 | currency }}</td>
+          <td>{{ 100000000 | currency }}</td>
+          <td>{{ 100000000 | currency }}</td>
+          <td>{{ 100000000 | currency }}</td>
+          <td>{{ 100000000 | currency }}</td>
+          <td>{{ 100000000 | currency }}</td>
+
+        </tr>
+
+        </tbody>
+
+
+      </table>
+    </div>
+    <!--    Tabla derecha      -->
+  </div>
+
+
+</div>

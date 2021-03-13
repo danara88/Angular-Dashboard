@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { environment } from '../../../environments/environment';
 
-import { Contract } from '../../models/contract.interfaces';
 
 @Component({
   selector: 'app-home',

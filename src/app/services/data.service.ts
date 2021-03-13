@@ -21,4 +21,10 @@ export class DataService {
     return this.http.get<Contract>(`${ this.apiBase }/projects/${ projectId }/contracts`)
       .pipe( map((resp: any) => resp.results[0]) );
   }
+  
+  getContractItems( projectId: string, contractId: string ): Observable<ContractItem[]> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.get<ContractItem[]>(`${ this.apiBase }/projects/${ projectId }/contracts/${ contractId }/management/items/`)
+      .pipe( map((resp: any) => resp.results) );
+  }
 }
