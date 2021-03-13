@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { environment } from '../../../environments/environment';
 
@@ -11,10 +11,10 @@ import { Contract } from '../../models/contract.interfaces';
   ]
 })
 export class CardsComponent implements OnInit {
-  public contract: Contract;
   public priceWithVat: number;
   public priceWithoutVat: number;
   public apiURL: string;
+  @Input() public contract: Contract;
   constructor( private dataService: DataService ) {
     this.priceWithoutVat = 0;
     this.priceWithVat = 0;
@@ -22,17 +22,10 @@ export class CardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getContractData();
+    // Cargar el precio con IVA y sin IVA
+    this.priceWithVat = this.contract.total_amount + (this.contract.total_amount * this.contract.vat);
+    this.priceWithoutVat = this.contract.total_amount;
   }
 
-  getContractData(): void {
-    this.dataService.getContractData('76bde480-70de-484b-4b87-c993642d8130-008c').subscribe(contract => {
-      this.contract = contract;
-      this.priceWithVat = this.contract.total_amount + (this.contract.total_amount * this.contract.vat);
-      this.priceWithoutVat = this.contract.total_amount;
-    }, error => {
-      console.log(error.error);
-    });
-  }
 
 }

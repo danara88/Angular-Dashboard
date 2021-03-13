@@ -1,3 +1,39 @@
+<div class="card-custom__row card-custom__row--center">
+  <!--    Progress bar      -->
+  <div class="progress-bar card-custom">
+    <span class="card-custom__data">PROGRESO A FECHA</span>
+    <span class="progress-bar__percent">50%</span>
+    <div class="w3-light-grey progress-bar__bar">
+      <div class="w3-green" style="height:24px;width:50%"></div>
+    </div>
+  </div>
+  <!--    Progress bar      -->
+</div>
+
+<div class="card-custom__row">
+  <div class="table-responsive">
+    <table class="table-custom1">
+      <thead class="table-custom1__head">
+      <tr>
+        <th>Total contratado</th>
+        <th>Estimado a la fecha</th>
+        <th>Pendiente de estimar</th>
+        <th>Anticipo por amortizar</th>
+        <th>Fondo garantía retenido</th>
+      </tr>
+      </thead>
+      <tbody class="table-custom1__body">
+      <tr>
+        <td>{{ contract.total_amount | currency }}</td>
+        <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
+        <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
+        <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
+        <td>{{ 100000000 | currency }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 <div class="card-custom__row">
 
   <div class="tables-title">
@@ -48,24 +84,24 @@
         </thead>
         <tbody class="table-custom2__body table-custom2__body-right">
 
-        <tr *ngFor="let item of contractItems">
+        <tr *ngFor="let item of contractItems; let idx = index">
           <td><span>{{ item.estimate | currency }}</span></td>
           <td><span>{{ item.down_payment | currency }}</span></td>
           <td><span>{{ item.guarantee_fund | currency }}</span></td>
-          <td><span>{{ 100000000 | currency }}</span></td>
-          <td><span>{{ 100000000 | currency }}</span></td>
-          <td><span>{{ 100000000 | currency }}</span></td>
+          <td><span>{{ subtotals[idx] | currency }}</span></td>
+          <td><span>{{ subtotals[idx] * contract.vat | currency }}</span></td>
+          <td><span>{{ subtotals[idx] + ((subtotals[idx]) * contract.vat) | currency }}</span></td>
         </tr>
 
         <div class="table2__space"></div>
 
         <tr class="table-custom2__total table-custom2__totals">
-          <td>{{ 100000000 | currency }}</td>
-          <td>{{ 100000000 | currency }}</td>
-          <td>{{ 100000000 | currency }}</td>
-          <td>{{ 100000000 | currency }}</td>
-          <td>{{ 100000000 | currency }}</td>
-          <td>{{ 100000000 | currency }}</td>
+          <td>{{ printTotalsTable('estimate')| currency }}</td>
+          <td>{{ printTotalsTable('down_payment') | currency }}</td>
+          <td>{{ printTotalsTable('guarantee_fund') | currency }}</td>
+          <td>{{ printTotalsTable('subtotal')| currency }}</td>
+          <td>{{ printTotalsTable('iva') | currency }}</td>
+          <td>{{  printTotalsTable('total') | currency }}</td>
 
         </tr>
 

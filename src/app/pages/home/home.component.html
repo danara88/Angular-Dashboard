@@ -6,61 +6,19 @@
 
   <section class="page__content">
 
-
     <!-- Componente de cards -->
-    <app-cards></app-cards>
-
-
-
+    <app-cards *ngIf="contract" [contract]="contract"></app-cards>
+    <!-- Componente de cards -->
 
     <div class="page__content-row">
       <div class="card-custom card-custom--not-padding card-custom--100 card-custom--column">
 
-        <div class="card-custom__row card-custom__row--center">
-          <!--    Progress bar      -->
-            <div class="progress-bar card-custom">
-              <span class="card-custom__data">PROGRESO A FECHA</span>
-              <span class="progress-bar__percent">50%</span>
-              <div class="w3-light-grey progress-bar__bar">
-                <div class="w3-green" style="height:24px;width:50%"></div>
-              </div>
-            </div>
-          <!--    Progress bar      -->
-        </div>
-
-        <div class="card-custom__row">
-          <div class="table-responsive">
-            <table class="table-custom1">
-              <thead class="table-custom1__head">
-              <tr>
-                <th>Total contratado</th>
-                <th>Estimado a la fecha</th>
-                <th>Pendiente de estimar</th>
-                <th>Anticipo por amortizar</th>
-                <th>Fondo garantía retenido</th>
-              </tr>
-              </thead>
-              <tbody class="table-custom1__body">
-                <tr>
-                  <td>{{ 100000000 | currency }}</td>
-                  <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
-                  <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
-                  <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
-                  <td>{{ 100000000 | currency }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <app-tables></app-tables>
-
+        <!-- Componente de las tablas -->
+        <app-tables *ngIf="contract" [contract]="contract"></app-tables>
+        <!-- Componente de las tablas -->
 
       </div>
     </div>
 
-
-
   </section>
-
 </div>
