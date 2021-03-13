@@ -1,10 +1,10 @@
 <div class="card-custom__row card-custom__row--center">
   <!--    Progress bar      -->
-  <div class="progress-bar card-custom">
+  <div class="progress-bar card-custom" *ngIf="percentPorgressbar && percentPorgressbar <= 100 && contractItems && contract">
     <span class="card-custom__data">PROGRESO A FECHA</span>
-    <span class="progress-bar__percent">50%</span>
+    <span class="progress-bar__percent">{{ percentPorgressbar }}%</span>
     <div class="w3-light-grey progress-bar__bar">
-      <div class="w3-green" style="height:24px;width:50%"></div>
+      <div class="w3-green" style="height:24px;width:{{ percentPorgressbar }}%"></div>
     </div>
   </div>
   <!--    Progress bar      -->
@@ -25,10 +25,10 @@
       <tbody class="table-custom1__body">
       <tr>
         <td>{{ contract.total_amount | currency }}</td>
-        <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
-        <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
-        <td class="table-custom1__td--margin">{{ 100000000 | currency }}</td>
-        <td>{{ 100000000 | currency }}</td>
+        <td class="table-custom1__td--margin">{{ printTotalsTable('estimate') | currency }}</td>
+        <td class="table-custom1__td--margin">{{ contract.total_amount - printTotalsTable('estimate') | currency }}</td>
+        <td class="table-custom1__td--margin">{{ contract.down_payment - printTotalsTable('down_payment') | currency }}</td>
+        <td>{{ printTotalsTable('guarantee_fund') | currency }}</td>
       </tr>
       </tbody>
     </table>
@@ -101,7 +101,7 @@
           <td>{{ printTotalsTable('guarantee_fund') | currency }}</td>
           <td>{{ printTotalsTable('subtotal')| currency }}</td>
           <td>{{ printTotalsTable('iva') | currency }}</td>
-          <td>{{  printTotalsTable('total') | currency }}</td>
+          <td>{{ printTotalsTable('total') | currency }}</td>
 
         </tr>
 

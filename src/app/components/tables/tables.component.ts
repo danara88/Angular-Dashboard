@@ -32,6 +32,10 @@ export class TablesComponent implements OnInit {
     this.getContractItems();
   }
 
+  get percentPorgressbar(): number {
+    return Math.ceil(this.contract.total_amount / this.printTotalsTable('estimate'));
+  }
+
   printTotalsTable(field: string): number {
     let result = 0;
     switch (field) {
