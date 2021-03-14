@@ -310,7 +310,9 @@ a {
   width: 100%; }
 
 .table-responsive-custom {
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 100%;
   width: 10rem;
   display: inline-block; }
 
@@ -382,9 +384,11 @@ a {
 
 .tables-container {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  overflow-y: auto;
+  height: 30rem; }
 
-.td-invisible > span {
+.td-invisible > div {
   visibility: hidden; }
 
 .table-custom2__total-text {

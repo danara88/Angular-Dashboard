@@ -40,9 +40,9 @@
     Deducciones
   </div>
   <div class="clearfix"></div>
-  <div class="tables-container" *ngIf="contractItems">
+  <div class="tables-container" *ngIf="contractItems" id="tables-container">
     <!--    Tabla izquierda      -->
-    <table class="table table-custom2 table-custom2-45 table-custom2--left">
+    <table class="table table-custom2 table-custom2-45 table-custom2--left" id="table-custom2-45">
       <thead class="table2__head">
       <tr>
         <th scope="col" class="table__number"><span>#</span></th>
@@ -53,11 +53,21 @@
       </tr>
       </thead>
       <tbody class="table-custom2__body">
+
       <tr *ngFor="let item of contractItems; let idx = index">
         <td class="table__number"><span>{{ idx + 1 }}</span></td>
         <td class="text-center"><span>{{ item.reviewDate | date:'dd/MM/yyyy' }}</span></td>
         <td><span>{{ item.name }}</span></td>
         <td><span>{{ item.reviewed_by }}</span></td>
+      </tr>
+
+      <div class="table2__space"></div>
+
+      <tr class="table-custom2__total table-custom2__totals table-custom2__total--border">
+        <td class="td-invisible"><div>----</div></td>
+        <td class="td-invisible"><div>----</div></td>
+        <td class="td-invisible"><div>----</div></td>
+        <td class="bold-custom table-custom2__total-text">Total</td>
       </tr>
 
       </tbody>
@@ -68,7 +78,7 @@
 
 
     <!--    Tabla derecha      -->
-    <div class="table-responsive-custom table-custom2-55">
+    <div class="table-responsive-custom table-custom2-55" id="table-custom2-55">
       <table class="table table-custom2 table-custom2--right">
         <thead class="table2__head table2__head--border-left">
 

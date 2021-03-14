@@ -30,7 +30,6 @@ export class TablesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContractItems();
-    console.log(this.contract.down_payment * this.contract.total_amount);
   }
 
   get percentPorgressbar(): number {
@@ -74,6 +73,7 @@ export class TablesComponent implements OnInit {
         this.contractItems = contractItems;
         // Obtener las cantidades totales de cada columna de la tabla
         this.getTableTotals();
+        this.calculateTablesHeight();
       }, error => {
         console.log(error);
       });
@@ -97,6 +97,13 @@ export class TablesComponent implements OnInit {
 
     });
 
+  }
+
+  calculateTablesHeight(): void {
+    const containerScroll = document.getElementById('tables-container');
+    const heightScroll = containerScroll.getBoundingClientRect().top - 210;
+    const tableRight = document.getElementById('table-custom2-55');
+    tableRight.style.height = heightScroll + 'px';
   }
 
 
